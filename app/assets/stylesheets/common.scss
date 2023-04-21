@@ -1,0 +1,335 @@
+// 各ページ共通
+body, div, p, ul, ol, li, h1, h2, h3 {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgb(255, 255, 255);
+}
+
+a {
+  color: rgb(83, 191, 176);
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.5;
+}
+
+.NewButton input:hover, .FormSave input:hover, .EditButton input:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.Partial {
+  color: rgb(0, 187, 236);
+  background-color: rgb(255, 255, 255);
+  border-bottom:4px solid transparent;
+  border-image:linear-gradient(to right, rgb(0, 161, 216) 40%, rgb(176, 239, 252) 100%);
+  border-image-slice:1;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  position: relative;
+  margin-bottom: 20px;
+  padding: 3px;
+  white-space: nowrap;
+}
+
+.Partial p {
+  position: absolute;
+  right: 10px;
+}
+
+.Success {
+  color: rgb(54, 150, 210);
+  border: 4px solid rgb(99, 213, 238);
+  padding: 5px;
+  margin: 10px auto;
+}
+
+.Failure {
+  color: rgb(237, 20, 20);
+  border: 4px solid rgb(237, 58, 45);
+  padding: 5px;
+  margin: 10px auto;
+}
+
+.ErrorMessage {
+  color: rgb(237, 20, 20);
+  font-size: 12px;
+}
+
+.ScheduleContainerTop, .FormContainerTop, .DetailContainerTop {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.ScheduleContainerTop h2, .FormContainerTop h2, .DetailContainerTop h2 {
+  color: rgb(0, 55, 80);
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px
+}
+
+.Checkmark {
+  content: '';
+  width: 18px;
+  height: 7px;
+  border-left: 3px solid rgb(0, 55, 80);
+  border-bottom: 3px solid rgb(0, 55, 80);
+  transform: rotate(-45deg);
+}
+
+// 一覧ページ
+.ScheduleContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 853px;
+}
+
+.ScheduleContainerTop h3 {
+  color: rgb(69, 150, 188);
+}
+
+.ScheduleContainerTop span {
+  font-size: larger;
+}
+
+.ScheduleTable {
+  overflow-x: auto;
+}
+
+.ScheduleTable table {
+  width: 100%;
+  text-align: center;
+  border: 2px solid rgb(122, 124, 129);
+  border-collapse: collapse;
+  overflow-x: auto;
+}
+
+.ScheduleTable th {
+  background-color: rgba(30, 145, 187, 0.946);
+  padding: 10px 20px;
+  color: rgb(255, 255, 255);
+  height: 30px;
+  white-space: nowrap;
+}
+
+.ScheduleTable td {
+  font-size: small;
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 45, 65);
+  padding: 10px 20px;
+  border: 1px solid rgb(255, 255, 255);
+  border-left: none;
+  border-right: none;
+  white-space: nowrap;
+}
+
+.NewButton {
+  text-align: right;
+  margin-top: 10px;
+}
+
+.NewButton input {
+  background-color: rgba(25, 126, 214, 0.946);
+  border: none;
+  border-radius: 5px;
+  width: 80px;
+  height: 30px;
+  font-size: 15px;
+  font-weight: bold;
+  color: rgb(249, 247, 247);
+  letter-spacing: 2px;
+  padding: auto;
+}
+
+.MenuButton {
+  background-color: rgb(248, 194, 69);
+}
+
+// 新規作成(編集)ページ
+.FormContainer {
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 700px;
+}
+
+.Form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(207,	251, 254);
+  border-radius: 15px;
+  color: rgb(0, 55, 80);
+  font-weight: bold;
+}
+
+.Form form {
+  width: 80%;
+  padding: 20px;
+}
+
+.FormTitle {
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.FormTitle input {
+  padding: 3px;
+  line-height: 1;
+  font-size: 15px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.FormDateRange {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  white-space: nowrap;
+}
+
+.FormStartAtInput, .FormEndAtInput {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.FormStartAtInput input, .FormEndAtInput input {
+  width: 210px;
+  line-height: 1;
+  font-size: larger;
+}
+
+.FormDateRange .ErrorMessage {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.FormIsAllDay {
+  font-size: 12px;
+  display: flex;
+  justify-content: right;
+  gap: 3px;
+  margin-bottom: 10px;
+}
+
+.FormIsAllDay input {
+  transform: scale(1.25);
+}
+
+.FormMemo {
+  display: flex;
+  flex-direction: column;
+}
+
+.FormMemo textarea {
+  padding: 5px;
+  line-height: 1;
+  height: 4.5em;
+  font-size: larger;
+  margin-bottom: 20px;
+}
+
+.FormButton {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 15px
+}
+
+.FormCancel{
+  border: 1px solid rgb(204, 197, 197);
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+  font-size: 15px;
+}
+
+.FormCancel a {
+  color: rgb(0, 0, 0);
+  padding: 5px;
+}
+
+.FormSave input {
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(20, 88, 248);
+  font-size: 15px;
+  color: rgb(255, 255, 255);
+}
+
+// 詳細ページ
+.DetailContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 600px;
+}
+
+.Detail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 10px auto;
+  padding: 20px;
+  width: 80%;
+  height: fit-content;
+}
+
+.Detail h3 {
+  color: rgb(52, 52, 141);
+  margin-bottom: 10px;
+}
+
+.Detail table {
+  width: 100%;
+  border-collapse: collapse;
+  border:1px solid rgb(45, 36, 103);
+}
+
+.Detail th {
+  background-color: rgb(143, 190, 218);
+  width: 35%;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgb(45, 36, 103);
+  white-space: nowrap;
+}
+
+.Detail td {
+  background-color: rgb(206, 240, 255);
+  color: rgb(84, 84, 84);
+  border-bottom: 1px solid rgb(45, 36, 103);
+  padding-left: 10px;
+}
+
+.EditButton {
+  margin: auto;
+}
+
+.EditButton input {
+  background-color: rgb(255, 255, 255);
+  color: rgb(52, 52, 141);
+  border: 2px solid rgb(52, 52, 141);
+  width: 70px;
+  font-weight: bold;
+  font-size: large;
+}

@@ -1,0 +1,78 @@
+<header>
+  <%= render "shared/partial" %>
+</header>
+
+<div class="FormContainer">
+  <div class="FormContainerTop">
+    <h2>
+      <div class="Checkmark"></div>
+      <div>スケジュール新規作成</div>
+    </h2>
+
+    <% if flash[:failure] %>
+      <p class="Failure"><%= flash[:failure] %></p>
+    <% end %>
+
+  </div>
+
+  <div class="Form">
+    <%= form_with model: @post do |f| %>
+      <div class="FormTitle">
+        <%= f.label :title, "タイトル" %>
+        <%= f.text_field :title, placeholder: "タイトルを入力する" %>
+        <div class="ErrorMessage">
+          <% if @post.errors.include?(:title) %>
+            <p><%= @post.errors.full_messages_for(:title).first %></p>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="FormDateRange">
+        <div class="FormStartAt">
+          <div class="FormStartAtInput">
+            <%= f.label :start_at, "開始日" %>
+            <%= f.date_field :start_at %>
+          </div>
+          <div class="ErrorMessage">
+            <% if @post.errors.include?(:start_at) %>
+              <p><%= @post.errors.full_messages_for(:start_at).first %></p>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="FormEndAt">
+          <div class="FormEndAtInput">
+            <%= f.label :end_at, "終了日" %>
+            <%= f.date_field :end_at %>
+          </div>
+          <div class="ErrorMessage">
+            <% if @post.errors.include?(:end_at) %>
+              <p><%= @post.errors.full_messages_for(:end_at).first %></p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="FormIsAllDay">
+        <%= f.check_box :is_all_day %>
+        <%= f.label :is_all_day, "終日の場合はチェックを入力" %>
+      </div>
+
+      <div class="FormMemo">
+        <%= f.label :memo, "スケジュールメモ" %>
+        <%= f.text_area :memo , placeholder: "メモを入力する" %>
+      </div>
+
+      <div class="FormButton">
+        <div class="FormCancel">
+          <%= link_to "キャンセル", posts_path %>
+        </div>
+
+        <div class="FormSave">
+          <%= f.submit "保存" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+</div>
