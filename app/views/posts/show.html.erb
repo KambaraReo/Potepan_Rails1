@@ -1,0 +1,42 @@
+<header>
+  <%= render "shared/partial" %>
+</header>
+
+<div class="DetailContainer">
+  <div class="DetailContainerTop">
+    <h2>
+      <div class="Checkmark"></div>
+      <div>スケジュール詳細</div>
+    </h2>
+    <%= link_to "一覧に戻る", posts_path, method: :get %>
+  </div>
+
+  <div class="Detail">
+    <div>
+      <h3><%= @post.title %></h3>
+    </div>
+
+    <table>
+      <tr>
+        <th>開始日</th>
+        <td><%= @post.start_at.strftime("%Y/%m/%d") %></td>
+      </tr>
+      <tr>
+        <th>終了日</th>
+        <td><%= @post.end_at.strftime("%Y/%m/%d") %></td>
+      </tr>
+      <tr>
+        <th>終日</th>
+        <td><%= @is_all_day_show %></td>
+      </tr>
+      <tr>
+        <th>スケジュールメモ</th>
+        <td><%= @post.memo %></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="EditButton">
+    <%= button_to "編集", edit_post_path(@post), method: :get %>
+  </div>
+</div>

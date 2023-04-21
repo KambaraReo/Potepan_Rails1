@@ -1,0 +1,59 @@
+<header>
+  <%= render "shared/partial" %>
+</header>
+
+<div class="ScheduleContainer">
+  <div class="ScheduleContainerTop">
+    <h2>
+      <div class="Checkmark"></div>
+      <div>スケジュール一覧</div>
+    </h2>
+
+    <% if flash[:success] %>
+      <p class="Success"><%= flash[:success] %></p>
+    <% end %>
+
+    <h3>ー 予定：<span><%= @posts.length %></span>件 ー</h3>
+  </div>
+
+  <div class="ScheduleTable">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>タイトル</th>
+          <th>開始日</th>
+          <th>終了日</th>
+          <th>終日</th>
+          <th>更新日時</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @posts.each do |post| %>
+          <tr>
+            <td><%= post.id %></td>
+            <td><%= post.title %></td>
+            <td><%= post.start_at.strftime("%Y/%m/%d") %></td>
+            <td><%= post.end_at.strftime("%Y/%m/%d") %></td>
+            <% if post.is_all_day %>
+              <% @is_all_day_show = "⚪︎" %>
+            <% else %>
+              <% @is_all_day_show = "" %>
+            <% end %>
+            <td><%= @is_all_day_show %></td>
+            <td><%= post.updated_at.strftime("%Y/%m/%d %H:%M") %></td>
+            <td><%= link_to "詳細", post_path(post) %></td>
+            <td><%= link_to "編集", edit_post_path(post) %></td>
+            <td><%= link_to "削除", post_path(post), method: :delete, data: { confirm: "スケジュールを削除しますか？"} %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="NewButton">
+    <%= button_to "新規作成", new_post_path, method: :get, class: "Button"%>
+  </div>
+
+</div>
